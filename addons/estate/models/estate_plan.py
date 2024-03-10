@@ -1,4 +1,4 @@
-from odoo import fields, models, api, tools
+from odoo import fields, models, api, tools, exceptions
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
@@ -33,6 +33,12 @@ class EstateProperty(models.Model):
     state = fields.Selection(string='State', selection=[('new', 'New'), ('offer_received', 'Offer Received'), ('offer_accepted', 'Offer Accepted'), ('sold', 'Sold'), ('canceled', 'Canceled')], required=True, copy=False, default='new')
     estate_property_id = fields.Many2one("estate.property.type")
     
+    @api.ondelete(at_uninstall=False)
+    def _ondelete_check_state(self):
+        for record in self:
+            if record.state not in ['new', 'canceled']:
+                raise UserError("Only properties in 'New' or 'Canceled' state can be deleted.")
+    
     @api.onchange('garden')
     def _onchange_garden(self):
         if self.garden:
@@ -50,7 +56,7 @@ class EstateProperty(models.Model):
     @api.depends('expected_price', 'offer_ids.price')
     def _compute_best_price(self):
         for record in self:
-            record.best_price = record.expected_price
+            record.best_price = 0
             for offer in record.offer_ids:
                 if offer.price > record.best_price:
                     record.best_price = offer.price
