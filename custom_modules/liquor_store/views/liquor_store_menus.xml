@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="liquor_store_menu_root"
+        name="Liquor Store"
+    />
+
+    <!-- Brands -->
+    <menuitem
+        id="liquor_store_brands_menu"
+        name="Brands"
+        parent="liquor_store_menu_root"
+    />
+    <menuitem
+        id="liquor_store_menu_action"
+        action="liquor_store_brand_action"
+        parent="liquor_store_brands_menu"
+    />
+
+    <!-- Bottles -->
+    <menuitem
+        id="liquor_store_bottles_menu"
+        name="Bottles"
+        parent="liquor_store_menu_root"
+    />
+    <menuitem
+        id="liquor_store_bottles_menu_action"
+        action="liquor_store_bottle_action"
+        parent="liquor_store_bottles_menu"
+    />
+
+    <!-- Shots -->
+    <menuitem
+        id="liquor_store_shots_menu"
+        name="Shots"
+        parent="liquor_store_menu_root"
+    />
+    <menuitem
+        id="liquor_store_shots_menu_action"
+        action="liquor_store_shot_action"
+        parent="liquor_store_shots_menu"
+    />
+
+    <!-- Supplier -->
+    <menuitem
+        id="liquor_store_supplier_menu"
+        name="Supplier"
+        parent="liquor_store_menu_root"
+    />
+    <menuitem
+        id="liquor_store_supplier_menu_action"
+        action="liquor_store_supplier_action"
+        parent="liquor_store_supplier_menu"
+    />
+
+    <!-- Supplier Transactions -->
+    <menuitem
+        id="liquor_store_supplier_transaction_menu"
+        name="Supplier Transaction"
+        parent="liquor_store_menu_root"
+    />
+    <menuitem
+        id="liquor_store_supplier_transaction_menu_action"
+        action="liquor_store_supplier_transaction_action"
+        parent="liquor_store_supplier_transaction_menu"
+    />
+
+
+</odoo>

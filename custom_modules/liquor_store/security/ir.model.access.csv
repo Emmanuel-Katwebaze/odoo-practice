@@ -1,0 +1,6 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_liquor_store_brand,access.liquor_store.brand,model_liquor_store_brand,base.group_user,1,1,1,1
+access_liquor_store_bottle,access.liquor_store.bottle,model_liquor_store_bottle,base.group_user,1,1,1,1
+access_liquor_store_shot,access.liquor_store.shot,model_liquor_store_shot,base.group_user,1,1,1,1
+access_liquor_store_supplier,access.liquor_store.supplier,model_liquor_store_supplier,base.group_user,1,1,1,1
+access_liquor_store_supplier_transaction,access.liquor_store.supplier_transaction,model_liquor_store_supplier_transaction,base.group_user,1,1,1,1
